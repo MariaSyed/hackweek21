@@ -14,7 +14,7 @@ public class FollowMouse : MonoBehaviour {
     void Update () {
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        mousePosition.y = mousePosition.y < -0.9 ? mousePosition.y : -0.9f;
+        mousePosition.y = mousePosition.y < -3.5 ? mousePosition.y : -3.5f;
         transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
     }
 }
