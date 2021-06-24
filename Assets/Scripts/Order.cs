@@ -59,7 +59,7 @@ public class Order : MonoBehaviour
             }
         }
 
-        Debug.Log(totalPoints);
+        currentRecipe = Recipes.get()[ordersQueue[0].gameObject.tag];
         pointsBox.text = "Points: " + totalPoints;
     }
 
