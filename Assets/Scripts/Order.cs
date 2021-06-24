@@ -8,6 +8,7 @@ public class Order : MonoBehaviour
 {
 
     public List<GameObject> orders;
+    public List<GameObject> ingredients;
     public GameObject bowl;
     public Text pointsBox;
     public Text bowlContentsBox;
@@ -37,6 +38,8 @@ public class Order : MonoBehaviour
         renderOrders();
 
         bowl.AddComponent<onBowlCollide>();
+
+        InvokeRepeating("pickIngredientToFall", 0, 1);
     }
 
     // Update is called once per frame
@@ -58,6 +61,12 @@ public class Order : MonoBehaviour
 
         Debug.Log(totalPoints);
         pointsBox.text = "Points: " + totalPoints;
+    }
+
+    void pickIngredientToFall(){
+        int rdmInt = Random.Range(0, ingredients.Count);
+        GameObject ingredient = ingredients[rdmInt];
+        Instantiate(ingredient, new Vector2(Random.Range(-4.0f, 5.0f), 5.0f), Quaternion.identity);
     }
 
     GameObject getRandomOrder() {
