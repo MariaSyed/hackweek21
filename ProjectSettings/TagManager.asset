@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - UpcomingOrders
+  - CurrentOrder
+  - ChocolateCake
+  - Milkshake
+  - StrawberryCake
+  - Bread
+  - Flour
+  - Egg
+  - Strawberry
+  - Sugar
+  - Milk
+  - Chocolate
+  - BowlContents
+  - Points
   layers:
   - Default
   - TransparentFX
