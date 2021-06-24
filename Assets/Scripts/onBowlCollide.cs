@@ -8,7 +8,8 @@ public class onBowlCollide : MonoBehaviour
 	{
         if (Recipes.getIngredients().Contains(collision.gameObject.tag)) {
             var order = GameObject.FindObjectOfType<Order>();
-            order.bowlContents.Add(collision.gameObject.tag);     
+            order.bowlContents.Add(collision.gameObject.tag);  
+            Destroy(collision.gameObject);   
         }
 	}
 }

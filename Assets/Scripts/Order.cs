@@ -48,13 +48,11 @@ public class Order : MonoBehaviour
 
         if (isOrderComplete) {
             onOrderComplete();
-            bowlContents = new List<string>();
         } else {
             var isOrderFail = bowlContents.Count > currentRecipe.Count;
 
             if (isOrderFail) {
                 onOrderFail();
-                bowlContents = new List<string>();
             }
         }
 
@@ -71,9 +69,9 @@ public class Order : MonoBehaviour
         Destroy(order2);
         Destroy(order3);
 
-        order1 = Instantiate(ordersQueue[0], new Vector2(-6.8f, 3.5f), Quaternion.identity);
-        order2 = Instantiate(ordersQueue[1], new Vector2(-6.8f, 1), Quaternion.identity);
-        order3 = Instantiate(ordersQueue[2], new Vector2(-6.8f, -1.5f), Quaternion.identity);
+        order1 = Instantiate(ordersQueue[0], new Vector2(-6.5f, 3.5f), Quaternion.identity);
+        order2 = Instantiate(ordersQueue[1], new Vector2(-6.5f, 1), Quaternion.identity);
+        order3 = Instantiate(ordersQueue[2], new Vector2(-6.5f, -1.5f), Quaternion.identity);
 
         order1.transform.localScale = new Vector2(1, 1);
         order2.transform.localScale = new Vector2(1, 1);
@@ -88,12 +86,13 @@ public class Order : MonoBehaviour
 
     void onOrderComplete() {
         totalPoints += 1000;
+        bowlContents = new List<string>();
         popOrdersQueue();
         renderOrders();
     }
 
     void onOrderFail() {
-        totalPoints -= 500;
+        bowlContents = new List<string>();
     }
 
      bool CompareLists<T> (List<T> list1, List<T> list2)
